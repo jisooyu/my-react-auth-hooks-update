@@ -1,3 +1,7 @@
+// 유투브 Slow Coding - React Hooks Todo – Revisited 의 후속
+// 여기에는 auth0, edit todo form을 추가
+// source code: https://github.com/jisooyu/my-react-auth-hooks-update
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/styles.scss";
