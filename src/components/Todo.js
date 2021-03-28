@@ -1,24 +1,14 @@
-import React, { useContext } from "react";
-import TodosContext from "../context/todos-context";
+import React from 'react'
 
-const Todo = ({ todo }) => {
-  const { dispatch } = useContext(TodosContext);
-  return (
-    <div>
-      <h3>{todo.title}</h3>
-      <p>{todo.body}</p>
-      <button
-        onClick={() =>
-          dispatch({
-            type: "REMOVE_TODO",
-            title: todo.title,
-          })
-        }
-      >
-        Remove
-      </button>
-    </div>
-  );
-};
+const Todo = ({todo}) => {
+    return (
+        <div className="content-container">
+            <h3>{todo.title}</h3>
+            <p>{todo.body}</p>
+            <p>{todo.inCharge}</p>
+            <p>{todo.deadline}</p>
+        </div>
+    )
+}
 
-export default Todo;
+export default Todo

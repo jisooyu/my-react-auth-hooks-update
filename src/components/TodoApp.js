@@ -1,9 +1,9 @@
 // authentication, login, logout
 
 import { LoginButton } from './LoginButton'
-import {LogoutButton } from './LogoutButton'
+import { LogoutButton } from './LogoutButton'
 import { Authentication } from './Authentication'
-import Header from './Header'
+import { Header } from './Header'
 import { useAuth0 } from "@auth0/auth0-react";
 
 const TodoApp = () => {
