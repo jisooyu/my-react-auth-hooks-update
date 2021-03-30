@@ -1,9 +1,28 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import TodosContext from '../context/todos-context'
+import AddTodoForm from './AddTodoForm'
+import EditTodoForm from './EditTodoForm'
 import Todo from './Todo'
 
 const TodoList = () => {
-    const { todos } = useContext(TodosContext);
+  const { todos, editStatus, setEditStatus } = useContext(TodosContext);
+
+  const initialCurrentTodo = {
+    title: "",
+    body: "",
+    inCharge: "",
+    deadline:""
+  }
+  const [currentTodo, setCurrentTodo] = useState(initialCurrentTodo)
+  const editTodo = (todo) => {
+    setEditStatus(!editStatus)
+    setCurrentTodo({
+      title: todo.title,
+      body: todo.body,
+      inCharge: todo.inCharge,
+      deadline: todo.deadline
+    })
+  }
     return (
       <div>
         <div className="content-container">
@@ -15,9 +34,10 @@ const TodoList = () => {
         </div>
         {todos.map((todo) => (
           <div key={todo.title}>
-            <Todo todo={todo} />
+            <Todo todo={todo} editTodo={editTodo} />
           </div>
         ))}
+        {editStatus ? (<EditTodoForm currentTodo={ currentTodo}/>) : (<AddTodoForm />)}
       </div>
     );
 }

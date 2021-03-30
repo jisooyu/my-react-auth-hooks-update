@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-const todosReducer = (state, action) => {
+const todoReducers = (state, action) => {
   switch (action.type) {
     case "POPULATE_TODOS":
       return action.todos;
@@ -23,7 +23,7 @@ const todosReducer = (state, action) => {
             title: action.title,
             body: action.body,
             inCharge: action.inCharge,
-            deadline: format(action.deadline, 'yyyy-MM-dd'),
+            deadline: format(action.deadline, "yyyy-MM-dd"),
           };
         } else {
           return todo;
@@ -34,4 +34,4 @@ const todosReducer = (state, action) => {
   }
 };
 
-export { todosReducer as default };
+export { todoReducers as default };
